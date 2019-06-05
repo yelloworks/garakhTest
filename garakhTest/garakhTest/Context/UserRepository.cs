@@ -2,46 +2,47 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using garakhTest.Entities;
 using garakhTest.Interfaces;
 
 namespace garakhTest.Context
 {
-    public class UserRepository : IRepository<User>
+    public class UserRepository : IRepository<Student>
     {
+        DbEntities _context = new DbEntities();
+
         public void Dispose()
         {
 
         }
 
-        public IEnumerable<User> ReadList()
+        public IEnumerable<Student> ReadList()
         {
-            throw new NotImplementedException();
+            return _context.GetData();
         }
 
-        public void Create(User item)
+        public void Create(Student item)
         {
-            throw new NotImplementedException();
+            _context.Students.Add(item);
         }
 
-        public User Read(int id)
+        public Student Read(int id)
         {
-            throw new NotImplementedException();
+            return _context.GetUser(id).FirstOrDefault();
         }
 
-        public void Update(User item)
+        public void Update(Student item)
         {
-            throw new NotImplementedException();
+            _context.Students.Attach(item);
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            _context.DeleteUser(id);
         }
 
         public void Save()
         {
-            throw new NotImplementedException();
+            _context.SaveChanges();
         }
     }
 }

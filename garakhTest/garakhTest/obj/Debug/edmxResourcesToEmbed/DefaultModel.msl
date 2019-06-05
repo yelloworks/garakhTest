@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DefaultModelStoreContainer" CdmEntityContainer="DbEntities">
+    <EntitySetMapping Name="Students">
+      <EntityTypeMapping TypeName="DefaultModel.Student">
+        <MappingFragment StoreEntitySet="Students">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="DefaultModel.Student">
+        <ModificationFunctionMapping>
+          <InsertFunction FunctionName="DefaultModel.Store.InsertUser">
+            <ScalarProperty Name="Group" ParameterName="Group" />
+            <ScalarProperty Name="Name" ParameterName="Name" />
+          </InsertFunction>
+          <UpdateFunction FunctionName="DefaultModel.Store.UpdateUser">
+            <ScalarProperty Name="Group" ParameterName="Group" Version="Current" />
+            <ScalarProperty Name="Name" ParameterName="Name" Version="Current" />
+            <ScalarProperty Name="Id" ParameterName="Id" Version="Current" />
+          </UpdateFunction>
+          <DeleteFunction FunctionName="DefaultModel.Store.DeleteUser">
+            <ScalarProperty Name="Id" ParameterName="Id" />
+          </DeleteFunction>
+        </ModificationFunctionMapping>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="DefaultModel.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="GetData" FunctionName="DefaultModel.Store.GetData" />
+    <FunctionImportMapping FunctionImportName="GetUser" FunctionName="DefaultModel.Store.GetUser" />
+    <FunctionImportMapping FunctionImportName="InsertUser" FunctionName="DefaultModel.Store.InsertUser" />
+    <FunctionImportMapping FunctionImportName="UpdateUser" FunctionName="DefaultModel.Store.UpdateUser" />
+  </EntityContainerMapping>
+</Mapping>

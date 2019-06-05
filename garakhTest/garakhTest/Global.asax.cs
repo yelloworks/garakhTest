@@ -18,6 +18,16 @@ namespace garakhTest
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            using (var context = new DbEntities())
+            {
+                Student user = new Student() { Name = "User2", Group = "Gr2"};
+                //var tmp = context.GetUser(2);
+                //var value = tmp.FirstOrDefault();
+                //var lst = tmp.ToList();
+                var tmp = context.GetData();
+                context.SaveChanges();
+            }
         }
     }
 }
