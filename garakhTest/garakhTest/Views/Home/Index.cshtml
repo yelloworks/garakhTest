@@ -8,3 +8,22 @@
     </tr>
     </thead>
 </table>
+<div style="text-align: center">
+    <button class="ui-button ui-widget ui-corner-all" id ="addBtn">Add</button>
+</div>
+
+    <div id="dialog-form" title="Create new user">
+        <form>
+            <fieldset>
+                @*<label for="id">Id</label>
+                    <input type="text" name="id" id="modalId" class="text ui-widget-content ui-corner-all" visibility ="collapse" readonly> <br>*@
+                <label for="name">Name</label>
+                <input type="text" name="name" id="modalName" class="text ui-widget-content ui-corner-all"> <br>
+                <label for="group">Group</label>
+                <input type="text" name="group" id="modalGroup" class="text ui-widget-content ui-corner-all">
+
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position: absolute; top: -1000px">
+            </fieldset>
+        </form>
+    </div>
