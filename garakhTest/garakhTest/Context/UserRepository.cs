@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using garakhTest.Interfaces;
@@ -17,12 +18,13 @@ namespace garakhTest.Context
 
         public IEnumerable<Student> ReadList()
         {
-            return _context.GetData();
+            return _context.GetData().ToList();
         }
 
         public void Create(Student item)
         {
             _context.Students.Add(item);
+            Save();
         }
 
         public Student Read(int id)
@@ -32,12 +34,28 @@ namespace garakhTest.Context
 
         public void Update(Student item)
         {
-            _context.Students.Attach(item);
+            var firstOrDefault = Read(item.Id);
+            if (firstOrDefault != null)
+            {
+                firstOrDefault.Name = item.Name;
+                firstOrDefault.Group = item.Group;
+                Save();
+            }
+
+            ////Mark2
+            //if (firstOrDefault != null)
+            //{
+            //_context.Entry(firstOrDefault).State = EntityState.Detached;
+            //_context.Students.Attach(item);
+            //Save();
+            //}
+
         }
 
         public void Delete(int id)
         {
             _context.DeleteUser(id);
+            Save();
         }
 
         public void Save()
