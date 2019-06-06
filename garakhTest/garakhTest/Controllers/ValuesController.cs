@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using garakhTest.Context;
 using garakhTest.Interfaces;
+using garakhTest.Models;
 
 namespace garakhTest.Controllers
 {
@@ -13,9 +14,9 @@ namespace garakhTest.Controllers
     {
         readonly IRepository<Student> _repository = new UserRepository(); 
         // GET api/values
-        public IEnumerable<Student> Get()
+        public JsonResponse<Student> Get()
         {
-            return _repository.ReadList();
+            return new JsonResponse<Student>(_repository.ReadList());
         }
 
         // GET api/values/5

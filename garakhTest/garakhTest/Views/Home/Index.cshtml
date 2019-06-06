@@ -1,24 +1,29 @@
-﻿<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS, and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+﻿<table id="grid-data" class="table table-condensed table-hover table-striped">
+    <thead>
+    <tr>
+        <th data-column-id="Id" data-type="numeric">ID</th>
+        <th data-column-id="Name">Name</th>
+        <th data-column-id="Group" data-order="desc">Group</th>
+        <th data-column-id="commands" data-formatter="commands" data-sortable="false">Commands</th>
+    </tr>
+    </thead>
+</table>
+<div style="text-align: center">
+    <button class="ui-button ui-widget ui-corner-all" id ="addBtn">Add</button>
 </div>
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>ASP.NET Web API is a framework that makes it easy to build HTTP services that reach
-        a broad range of clients, including browsers and mobile devices. ASP.NET Web API
-        is an ideal platform for building RESTful applications on the .NET Framework.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301870">Learn more &raquo;</a></p>
+
+    <div id="dialog-form" title="Create new user">
+        <form>
+            <fieldset>
+                @*<label for="id">Id</label>
+                    <input type="text" name="id" id="modalId" class="text ui-widget-content ui-corner-all" visibility ="collapse" readonly> <br>*@
+                <label for="name">Name</label>
+                <input type="text" name="name" id="modalName" class="text ui-widget-content ui-corner-all"> <br>
+                <label for="group">Group</label>
+                <input type="text" name="group" id="modalGroup" class="text ui-widget-content ui-corner-all">
+
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position: absolute; top: -1000px">
+            </fieldset>
+        </form>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301871">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301872">Learn more &raquo;</a></p>
-    </div>
-</div>
